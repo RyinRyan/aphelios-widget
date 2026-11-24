@@ -65,7 +65,7 @@
 
 ## 当前交互设计
 
-关键页面和实际验证见[Widget 页面交互设计](../design/widget-interaction-design.md)。
+关键页面和实际验证见[Widget 页面交互设计](widget-requirements.md)。
 
 ## 变更记录
 

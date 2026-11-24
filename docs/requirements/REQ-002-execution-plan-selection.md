@@ -5,7 +5,7 @@
 | 状态 | 待评审 |
 | 版本 | 0.2 |
 | 创建 / 更新 | 2026-11-24 / 2026-11-24 |
-| 关联 | [REQ-003 方案管理](REQ-003-custom-execution-plan.md)、[页面交互设计](../design/widget-interaction-design.md) |
+| 关联 | [REQ-003 方案管理](REQ-003-custom-execution-plan.md)、[页面交互设计](widget-requirements.md) |
 
 ## 背景与目标
 
@@ -37,7 +37,7 @@
 
 ## 演示与证据
 
-[交互设计](../design/widget-interaction-design.md)含详情、方案选择、下发后状态截图。真实空间鉴权、共享存储及事件服务不在 demo 中实现。
+[交互设计](widget-requirements.md)含详情、方案选择、下发后状态截图。真实空间鉴权、共享存储及事件服务不在 demo 中实现。
 
 ## 变更记录
 

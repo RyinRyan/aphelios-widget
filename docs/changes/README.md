@@ -1,6 +1,6 @@
 # 设计变更记录
 
-这些记录描述当轮决策、修改和验证，不是当前需求规格。当前内容见[需求规格](../requirements/README.md)与[交互设计](../design/widget-interaction-design.md)。索引按编号倒序；历史记录保留当时结果，不将旧布局视为当前设计。
+这些记录描述当轮决策、修改和验证，不是当前需求规格。当前内容见[需求规格](../requirements/README.md)与[交互设计](../requirements/widget-requirements.md)。索引按编号倒序；历史记录保留当时结果，不将旧布局视为当前设计。
 
 | 编号 | 记录 | 说明 |
 |---|---|---|

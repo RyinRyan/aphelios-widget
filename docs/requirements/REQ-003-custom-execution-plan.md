@@ -69,7 +69,7 @@ Widget 与工作台通过发布事件触发任务，不直接拉起 Workflow 或
 
 ## 页面交互设计
 
-创建、管理、选择和任务回显截图见[页面交互设计](../design/widget-interaction-design.md)。
+创建、管理、选择和任务回显截图见[页面交互设计](widget-requirements.md)。
 
 ## 演示边界
 

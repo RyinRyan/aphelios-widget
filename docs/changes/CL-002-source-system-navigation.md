@@ -5,7 +5,7 @@
 | 日期 | 2026-11-24 |
 | 关联需求 | [REQ-001](../requirements/REQ-001-todo-agent-widget.md) |
 | 涉及 Widget | 我的待办 |
-| 关联汇总 | [新增功能澄清](../design/widget-interaction-design.md) |
+| 关联汇总 | [新增功能澄清](../requirements/widget-requirements.md) |
 
 ## 本轮页面变更
 
@@ -30,7 +30,7 @@
 
 ## 同步文件
 
-- [功能澄清汇总](../design/widget-interaction-design.md)
+- [功能澄清汇总](../requirements/widget-requirements.md)
 - [待办规格](../requirements/REQ-001-todo-agent-widget.md)
 - [页面脚本](../../demo/app.js)
 - [页面样式](../../demo/styles.css)

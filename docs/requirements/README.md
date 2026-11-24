@@ -1,5 +1,7 @@
 # 需求索引
 
+**本轮完整需求文档：[Widget 新增功能需求规格](widget-requirements.md)**。包含业务规则、交互、关键截图和验收标准；下列 REQ 为分项条款。
+
 | 编号 | 需求 | 状态 | 演示 | 说明 |
 |---|---|---|---|---|
 | REQ-001 | [我的待办及 Agent 任务交互](REQ-001-todo-agent-widget.md) | 草稿 | [页面](../../demo/index.html) | 基于现有讨论整理，待业务评审 |
@@ -9,4 +11,4 @@
 
 新增或调整需求时，按[需求规格规范](../guides/requirements-standard.md)维护本索引。
 
-当前页面交互与截图见[页面交互设计](../design/widget-interaction-design.md)。
+当前完整需求及关键截图见[需求文档](widget-requirements.md)。
