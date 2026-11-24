@@ -35,3 +35,5 @@ aphelios-widget/
 “我的待办”组件中的“执行方案配置”可为模拟 AgentSpace 空间和对象类别创建及管理方案。方案仅保存在当前页面会话中，刷新后清除；不会连接或配置 AgentSpace。
 
 本轮新增功能交互见[需求澄清文档](docs/clarifications/widget-feature-clarification.md)。
+
+后续每轮交互设计的变更与截图见[澄清记录索引](docs/clarifications/README.md)。

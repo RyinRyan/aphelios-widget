@@ -40,9 +40,10 @@ const $=id=>document.getElementById(id), statusClass={'执行中':'running','分
 function statusHTML(status){return `<span class="status ${statusClass[status]||''}">${status==='已完成'?'✓':status==='分配中'?'◷':status==='失败'?'⊗':'ϟ'} ${status}</span>`}
 function filtered(){return departmentItems().filter(x=>(activeType==='全部'||x.type===activeType)&&($('statusFilter').value==='全部'||x.status===$('statusFilter').value)&&($('priorityFilter').value==='全部'||x.priority===$('priorityFilter').value))}
 function render(){
+ document.querySelector('.count').textContent=departmentItems().length;
  renderDepartment(); document.querySelector('.tabs').innerHTML=Object.entries(countsFor(departmentItems())).map(([type,count])=>`<button class="tab ${type} ${activeType===type?'active':''}" data-type="${type}" aria-pressed="${activeType===type}">${type} ${count}</button>`).join('');
  const list=filtered(), pages=Math.max(1,Math.ceil(list.length/5));page=Math.min(page,pages);
- $('rows').innerHTML=list.slice((page-1)*5,page*5).map(x=>`<div class="row"><input type="checkbox" aria-label="选择 ${x.id}" data-select="${x.id}" ${selected.has(x.id)?'checked':''}><span class="tag ${x.type}">${x.type}</span><div class="item-summary"><button class="item-detail-trigger" data-detail="${x.id}" aria-label="查看 ${x.id} 详情"><span class="item-name">${x.id}&nbsp; ${x.name}</span><span class="detail-hint">详情 ⓘ</span></button><div class="item-desc">${x.desc}</div><div class="detail-preview" role="tooltip"><span>需求编号 <b>${x.id}</b></span><span>需求标题 <b>${x.name}</b></span><span>需求描述 <b>${x.desc}</b></span><small>点击标题查看完整详情</small></div><div class="item-source">来源：${departmentSources[currentDepartment()]?.[x.type] || '暂无配置'}${x.plan ? ' · 执行方案：'+escapeHTML(x.plan) : ''}</div></div><div><div class="status-line">${statusHTML(x.status)}</div></div><div class="agent-id">${x.agent?x.agent+' ↗':''}</div><button class="row-action ${x.status==='待处理'||x.status==='失败'?'primary':''}" data-action="${x.id}">${x.status==='待处理'?'ϟ&nbsp; 交给 Agent':x.status==='失败'?'重试':(x.status==='执行中'||x.status==='分配中')?'前往 AgentSpace ↗':'查看结果'}</button><button class="more" data-more="${x.id}" aria-label="${x.id} 更多操作">•••</button></div>`).join('')||'<div class="empty">没有符合条件的待办</div>';
+ $('rows').innerHTML=list.slice((page-1)*5,page*5).map(x=>`<div class="row"><input type="checkbox" aria-label="选择 ${x.id}" data-select="${x.id}" ${selected.has(x.id)?'checked':''}><span class="tag ${x.type}">${x.type}</span><div class="item-summary"><button class="item-detail-trigger" data-detail="${x.id}" aria-label="查看 ${x.id} 详情"><span class="item-name">${x.id}&nbsp; ${x.name}</span><span class="detail-hint">详情 ⓘ</span></button><div class="item-desc">${x.desc}</div><div class="detail-preview" role="tooltip"><span>需求编号 <b>${x.id}</b></span><span>需求标题 <b>${x.name}</b></span><span>需求描述 <b>${x.desc}</b></span><small>点击标题查看完整详情</small></div><div class="item-source">来源：${departmentSources[currentDepartment()]?.[x.type] || '暂无配置'} ${sourceEntry(x)}${x.plan ? ' · 执行方案：'+escapeHTML(x.plan) : ''}</div></div><div><div class="status-line">${statusHTML(x.status)}</div></div><div class="agent-id">${x.agent?x.agent+' ↗':''}</div><button class="row-action ${x.status==='待处理'||x.status==='失败'?'primary':''}" data-action="${x.id}">${x.status==='待处理'?'ϟ&nbsp; 交给 Agent':x.status==='失败'?'重试':(x.status==='执行中'||x.status==='分配中')?'前往 AgentSpace ↗':'查看结果'}</button><button class="more" data-more="${x.id}" aria-label="${x.id} 更多操作">•••</button></div>`).join('')||'<div class="empty">没有符合条件的待办</div>';
  $('selectedCount').textContent=`已选 ${selected.size} 项`; $('pageInfo').textContent=`${page} / ${pages}`; $('prev').disabled=page===1;$('next').disabled=page===pages;
  const tracked=departmentItems().filter(x=>x.agent);
  const statuses=[['分配中','#ff8c16'],['执行中','#1856ff'],['失败','#f1244b'],['已完成','#36c94e']];
@@ -115,6 +116,13 @@ $('configForm').onsubmit=e=>{
  if(existing){existing.name=name;existing.desc=desc;existing.role=role}else customPlans.push({id:'custom-'+Date.now()+'-'+customPlans.length,spaceId:demoSpaceId,type,name,code,desc,role,enabled:true});
  resetConfigForm();renderConfigList();toast(existing?'方案已更新':'方案已创建');
 };
+function sourceUrlFor(item){
+ try {const url=new URL(item.sourceUrl);return ['https:','http:'].includes(url.protocol)?url.href:null;} catch {return null;}
+}
+function sourceEntry(item){
+ const url=sourceUrlFor(item);
+ return url?`<a class="source-entry" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer" aria-label="在原系统打开 ${escapeHTML(item.id)}">前往原系统 ↗</a>`:'<span class="source-unconfigured" title="原系统对象地址尚未配置">原系统地址未配置</span>';
+}
 function showItemDetail(item){
  $('detailTitle').textContent=item.id+' · '+item.name;
  $('detailId').textContent=item.id;
@@ -129,7 +137,7 @@ function showItemDetail(item){
   else modal((item.status==='执行中'||item.status==='分配中')?'Agent 任务':'任务结果',`${item.agent || ''} · ${item.id} ${item.name}。当前状态：${item.status}。此页面为本地演示。`,null,'关闭');
  };
  let sourceUrl=null;
- try {const url=new URL(item.sourceUrl);if(url.protocol==='https:'||url.protocol==='http:')sourceUrl=url.href;} catch {}
+ sourceUrl=sourceUrlFor(item);
  $('sourceLink').hidden=!sourceUrl;$('sourceUnavailable').hidden=!!sourceUrl;
  if(sourceUrl) $('sourceLink').href=sourceUrl; else $('sourceLink').removeAttribute('href');
  $('detailDialog').showModal();
