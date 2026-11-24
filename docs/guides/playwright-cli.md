@@ -21,4 +21,4 @@ CLI 提供 `screenshot --filename <路径> --full-page`，也支持针对组件�
 python -m http.server 8000 --bind 127.0.0.1 --directory demo
 ```
 
-访问 `http://127.0.0.1:8000/`。2026-11-24 已通过内置浏览器成功加载并保存首页和方案配置弹窗截图，截图证据见[当前交互设计](../requirements/widget-requirements.md)。本次验证使用内置浏览器，不代表 CLI 截图已单独测试。
+访问 `http://127.0.0.1:8000/`。2026-11-24 已通过内置浏览器成功加载并保存首页和方案配置弹窗截图，截图证据见[当前交互设计](../requirements/REQ-005-2026-11-24-widget-requirements.md)。本次验证使用内置浏览器，不代表 CLI 截图已单独测试。

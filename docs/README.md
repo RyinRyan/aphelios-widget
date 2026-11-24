@@ -2,7 +2,7 @@
 
 | 目录 | 用途 | 入口 |
 |---|---|---|
-| requirements | 当前有效需求，包含规则、交互、截图和验收 | [Widget 需求规格](requirements/widget-requirements.md) |
+| requirements | 当前有效需求，包含规则、交互、截图和验收 | [Widget 需求规格](requirements/REQ-005-2026-11-24-widget-requirements.md) |
 | guides | 文档规范、模板和调测方法 | [编写规范](guides/requirements-standard.md) |
 | reference | 用户提供的原始输入，不等同当前规格 | [参考说明](reference/README.md) |
 

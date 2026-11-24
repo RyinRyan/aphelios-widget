@@ -6,7 +6,7 @@
 
 - [文档管理与完整导航](docs/README.md)：分类职责及本次整理去向。
 - [需求规格](docs/requirements/README.md)：当前业务规则与验收标准。
-- [本轮完整需求文档](docs/requirements/widget-requirements.md)：业务规则、关键流程、截图及验收标准。
+- [本轮完整需求文档](docs/requirements/REQ-005-2026-11-24-widget-requirements.md)：业务规则、关键流程、截图及验收标准。
 - [编写规范](docs/guides/requirements-standard.md)与 [AGENTS.md](AGENTS.md)：协作及交付流程。
 
 ## 目录
