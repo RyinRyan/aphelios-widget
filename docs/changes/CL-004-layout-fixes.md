@@ -6,6 +6,8 @@
 | 关联需求 | [REQ-001](../requirements/REQ-001-todo-agent-widget.md) |
 | 涉及 Widget | 我的待办、Agent 任务追踪 |
 
+> 历史过程记录：该轮布局策略已被 [CL-005](CL-005-responsive-strategy.md) 替代，当前页面以 design 目录为准。
+
 ## 本轮页面变更
 
 **修复已发现的横向溢出，并明确调测发现问题必须立即修复、复测。**
