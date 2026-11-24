@@ -7,7 +7,6 @@
 - [文档管理与完整导航](docs/README.md)：分类职责及本次整理去向。
 - [需求规格](docs/requirements/README.md)：当前业务规则与验收标准。
 - [本轮完整需求文档](docs/requirements/widget-requirements.md)：业务规则、关键流程、截图及验收标准。
-- [设计变更记录](docs/changes/README.md)：按轮记录的决策与前后变化。
 - [编写规范](docs/guides/requirements-standard.md)与 [AGENTS.md](AGENTS.md)：协作及交付流程。
 
 ## 目录
@@ -17,7 +16,6 @@ aphelios-widget/
 ├── demo/                    # 可运行页面
 ├── docs/
 │   ├── requirements/        # 当前需求规格
-│   ├── changes/             # 历史澄清与页面变化
 │   ├── guides/              # 规范、模板、调测方法
 │   └── reference/           # 原始输入材料
 └── assets/
